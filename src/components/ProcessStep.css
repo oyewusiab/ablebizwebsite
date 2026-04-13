@@ -1,0 +1,86 @@
+/* Process Step Styles */
+.process-step {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.process-step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.step-number {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  box-shadow: 0 5px 15px rgba(0, 210, 106, 0.3);
+}
+
+.step-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #F0FFF7, #E8F8FF);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: var(--primary-green);
+  transition: all 0.3s ease;
+}
+
+.process-step:hover .step-icon {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+  color: white;
+}
+
+.step-title {
+  font-size: 1.25rem;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+.step-description {
+  color: var(--text-light);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .process-step {
+    padding: 1.5rem;
+  }
+
+  .step-number {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    top: -10px;
+    right: -10px;
+  }
+
+  .step-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .step-title {
+    font-size: 1.125rem;
+  }
+}

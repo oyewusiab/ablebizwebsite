@@ -1,0 +1,254 @@
+/* Global Styles */
+:root {
+  /* Brand Colors - Vibrant & Playful */
+  --primary-green: #00D26A;
+  --dark-green: #0ee60e;
+  --accent-orange: #FF6B35;
+  --accent-blue: #4A90E2;
+  --accent-purple: #9B59B6;
+  --text-dark: #2C3E50;
+  --text-light: #7F8C8D;
+  --bg-light: #F8F9FA;
+  --bg-white: #FFFFFF;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --shadow-hover: rgba(0, 0, 0, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-dark);
+  background-color: var(--bg-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 2rem; }
+h4 { font-size: 1.5rem; }
+
+p {
+  margin-bottom: 1rem;
+  color: var(--text-light);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Utility Classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-primary {
+  color: var(--primary-green);
+}
+
+.bg-light {
+  background-color: var(--bg-light);
+}
+
+/* Button Styles */
+.btn {
+  padding: 0.875rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 210, 106, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 210, 106, 0.4);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, var(--accent-orange), #FF8C5A);
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--primary-green);
+  color: var(--primary-green);
+}
+
+.btn-outline:hover {
+  background: var(--primary-green);
+  color: white;
+}
+
+/* Card Styles */
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 5px 20px var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px var(--shadow-hover);
+}
+
+/* Animation Classes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.6s ease-out;
+}
+
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .section {
+    padding: 3rem 0;
+  }
+  
+  .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Loading Spinner */
+.spinner {
+  border: 3px solid var(--bg-light);
+  border-top: 3px solid var(--primary-green);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

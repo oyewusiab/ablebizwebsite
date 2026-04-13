@@ -1,0 +1,147 @@
+/* About Page Styles */
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-text h2 {
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+}
+
+.about-text p {
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* MVV Grid */
+.mvv-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.mvv-card {
+  background: white;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.mvv-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.mvv-icon {
+  color: var(--primary-green);
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.mvv-card h3 {
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+.mvv-card p {
+  color: var(--text-light);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Team Grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.team-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.team-image {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--primary-green);
+}
+
+.team-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-card h3 {
+  color: var(--text-dark);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.team-role {
+  color: var(--primary-green);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.team-bio {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .mvv-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-image {
+    width: 100px;
+    height: 100px;
+  }
+}

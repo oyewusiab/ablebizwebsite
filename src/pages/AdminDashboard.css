@@ -1,0 +1,244 @@
+/* Admin Dashboard Specific Styles */
+
+.admin-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.admin-stat-card {
+  background: white;
+  border: 2px solid #f0f0f0;
+  padding: 1.5rem;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.admin-stat-card:hover {
+  border-color: var(--primary-green);
+  box-shadow: 0 5px 20px rgba(0, 210, 106, 0.1);
+}
+
+.admin-stat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.admin-stat-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-change {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+}
+
+.stat-change.positive {
+  background: #D4EDDA;
+  color: #155724;
+}
+
+.admin-stat-card h3 {
+  font-size: 2rem;
+  color: var(--text-dark);
+  margin: 0.5rem 0;
+}
+
+.admin-stat-card p {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Analytics Section */
+.analytics-section {
+  background: var(--bg-light);
+  padding: 2rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+}
+
+.analytics-section h3 {
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+}
+
+/* Service Bars */
+.service-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.service-bar-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.service-bar-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.service-name {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.service-count {
+  color: var(--text-light);
+}
+
+.service-bar-track {
+  height: 10px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.service-bar-fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.6s ease;
+}
+
+/* Bar Chart */
+.chart-container {
+  height: 300px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.bar-chart {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.bar-chart-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bar {
+  width: 100%;
+  min-height: 40px;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.bar:hover {
+  opacity: 0.8;
+}
+
+.bar-value {
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.bar-label {
+  color: var(--text-light);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Metrics Grid */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.metric-card {
+  background: var(--bg-light);
+  padding: 1.5rem;
+  border-radius: 15px;
+}
+
+.metric-card h4 {
+  color: var(--text-dark);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 1rem;
+}
+
+.metric-bar {
+  height: 8px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.metric-bar div {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-green), var(--accent-blue));
+  border-radius: 10px;
+  transition: width 0.6s ease;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .admin-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bar-chart {
+    gap: 0.5rem;
+  }
+
+  .bar-value {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-container {
+    height: 250px;
+  }
+
+  .bar-chart {
+    gap: 0.25rem;
+  }
+
+  .analytics-section {
+    padding: 1.5rem;
+  }
+}
