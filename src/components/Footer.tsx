@@ -1,85 +1,142 @@
+import React from "react";
 import { Link } from "react-router-dom";
-import { Mail, MapPin, Phone } from "lucide-react";
-import { site, buildWhatsAppLink } from "../content/site";
-import { Container } from "./ui/Container";
-import { ButtonLink } from "./ui/Button";
+import { 
+  Facebook, 
+  Twitter, 
+  Instagram, 
+  Linkedin, 
+  Mail, 
+  Phone, 
+  MapPin,
+  Send,
+  Globe,
+  MessageCircle
+} from "lucide-react";
+import "./Footer.css";
 
-export function Footer() {
-  const whatsapp = buildWhatsAppLink(
-    "Hello ABLEBIZ, I’m ready to register. Please share the next steps."
-  );
+export const Footer = () => {
+  const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-emerald-100 bg-white/50">
-      <Container className="py-12">
-        <div className="grid gap-10 md:grid-cols-3">
-          <div className="space-y-3">
-            <div className="text-base font-extrabold text-[color:var(--ablebiz-primary)]">
-              {site.name}
+    <footer className="footer">
+      {/* Newsletter Section */}
+      <div className="newsletter-section">
+        <div className="container">
+          <div className="newsletter-content">
+            <div className="newsletter-text">
+              <h3>Stay Updated with ABLEBIZ</h3>
+              <p>Subscribe to our newsletter for business tips, CAC updates, and exclusive offers</p>
             </div>
-            <p className="text-sm text-slate-700">{site.tagline}</p>
-            <p className="text-sm font-semibold text-[color:var(--ablebiz-accent)]">
-              {site.awardBadge}
-            </p>
+            <form className="newsletter-form">
+              <input 
+                type="email" 
+                placeholder="Enter your email address" 
+                required 
+              />
+              <button type="submit" className="btn btn-primary">
+                <Send size={20} />
+                Subscribe
+              </button>
+            </form>
           </div>
+        </div>
+      </div>
 
-          <div className="space-y-3">
-            <div className="text-sm font-bold text-[color:var(--ablebiz-primary)]">
-              Quick Links
-            </div>
-            <div className="grid gap-2 text-sm">
-              <Link className="text-slate-700 no-underline hover:underline" to="/services">
-                Services
-              </Link>
-              <Link className="text-slate-700 no-underline hover:underline" to="/pricing">
-                Pricing
-              </Link>
-              <Link className="text-slate-700 no-underline hover:underline" to="/blog">
-                Blog / Resources
-              </Link>
-              <Link className="text-slate-700 no-underline hover:underline" to="/contact">
-                Contact
-              </Link>
-            </div>
-          </div>
-
-          <div className="space-y-3">
-            <div className="text-sm font-bold text-[color:var(--ablebiz-primary)]">
-              Contact
-            </div>
-            <div className="space-y-2 text-sm text-slate-700">
-              <a className="flex items-center gap-2 no-underline hover:underline" href={`tel:${site.phone}`}>
-                <Phone className="h-4 w-4" />
-                {site.phoneDisplay}
-              </a>
-              <a className="flex items-center gap-2 no-underline hover:underline" href={`mailto:${site.email}`}>
-                <Mail className="h-4 w-4" />
-                {site.email}
-              </a>
-              <div className="flex items-start gap-2">
-                <MapPin className="mt-0.5 h-4 w-4" />
-                <span>{site.location}</span>
+      {/* Main Footer */}
+      <div className="footer-main">
+        <div className="container">
+          <div className="footer-grid">
+            {/* About Column */}
+            <div className="footer-column">
+              <div className="footer-logo">
+                <span className="logo-text">Ablebiz</span>
+                <span className="logo-subtitle">BUSINESS SERVICES</span>
+              </div>
+              <p className="footer-description">
+                Simplifying your business journey with professional registration, 
+                compliance, and advisory services. Your trusted partner for all 
+                CAC-related matters.
+              </p>
+              <div className="social-links">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                  <Facebook size={20} />
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                  <Twitter size={20} />
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                  <Instagram size={20} />
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                  <Linkedin size={20} />
+                </a>
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-2 pt-2">
-              <ButtonLink to={whatsapp} external>
-                Chat on WhatsApp
-              </ButtonLink>
-              <ButtonLink to="/contact" variant="secondary">
-                Contact Form
-              </ButtonLink>
+            {/* Quick Links */}
+            <div className="footer-column">
+              <h4>Quick Links</h4>
+              <ul className="footer-links">
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/services">Our Services</Link></li>
+                <li><Link to="/about">About Us</Link></li>
+                <li><Link to="/blog">Blog & Resources</Link></li>
+                <li><Link to="/contact">Contact Us</Link></li>
+              </ul>
+            </div>
+
+            {/* Services */}
+            <div className="footer-column">
+              <h4>Our Services</h4>
+              <ul className="footer-links">
+                <li><Link to="/services">Business Registration</Link></li>
+                <li><Link to="/services">CAC Compliance</Link></li>
+                <li><Link to="/services">Administrative Support</Link></li>
+                <li><Link to="/services">Corporate Advisory</Link></li>
+                <li><Link to="/services">Document Processing</Link></li>
+              </ul>
+            </div>
+
+            {/* Contact Info */}
+            <div className="footer-column">
+              <h4>Contact Us</h4>
+              <ul className="contact-list">
+                <li>
+                  <MapPin size={18} />
+                  <span>123 Business District, Lagos, Nigeria</span>
+                </li>
+                <li>
+                  <Phone size={18} />
+                  <a href="tel:+2348160486023">+234 816 048 6023</a>
+                </li>
+                <li>
+                  <Mail size={18} />
+                  <a href="mailto:hello@ablebiz.com.ng">hello@ablebiz.com.ng</a>
+                </li>
+              </ul>
+              <div className="working-hours">
+                <strong>Working Hours:</strong>
+                <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                <p>Saturday: 10:00 AM - 2:00 PM</p>
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="mt-10 flex flex-col gap-2 border-t border-emerald-100 pt-6 text-xs text-slate-600 md:flex-row md:items-center md:justify-between">
-          <div>© {new Date().getFullYear()} {site.name}. All rights reserved.</div>
-          <div className="text-slate-600">
-            Keywords: Business registration in Abeokuta • CAC agent in Nigeria • Register business in Nigeria
+      {/* Bottom Bar */}
+      <div className="footer-bottom">
+        <div className="container">
+          <div className="footer-bottom-content">
+            <p>&copy; {currentYear} ABLEBIZ Business Services. All rights reserved.</p>
+            <div className="footer-legal">
+              <Link to="/privacy">Privacy Policy</Link>
+              <span>|</span>
+              <Link to="/terms">Terms of Service</Link>
+            </div>
           </div>
         </div>
-      </Container>
+      </div>
     </footer>
   );
-}
+};

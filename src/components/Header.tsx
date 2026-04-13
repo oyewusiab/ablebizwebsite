@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { Gift, Menu, Phone, X } from "lucide-react";
+import { Gift, Menu, Phone, X, Mail } from "lucide-react";
 import { site } from "../content/site";
 import { cn } from "../utils/cn";
 import { Button } from "./ui/Button";
 import { useGamification } from "../gamification/GamificationProvider";
+import { useAuth } from "../context/AuthContext";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -19,15 +20,59 @@ const nav = [
 export function Header() {
   const { openSpin } = useGamification();
   const [open, setOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const { pathname } = useLocation();
+  const { user, isAuthenticated, logout } = useAuth();
 
   useEffect(() => {
     setOpen(false);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [pathname]);
 
+  const handleLogout = () => {
+    logout();
+    setOpen(false);
+  };
 
   return (
-    <header className="sticky top-0 z-40 border-b border-emerald-100 bg-[rgba(204,255,204,0.75)] backdrop-blur">
+    <>
+      {/* Top Bar */}
+      <div className="hidden bg-[color:var(--ablebiz-primary)] py-2 text-white md:block">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-6 text-xs font-medium">
+            <a href={`tel:${site.phone}`} className="flex items-center gap-2 text-white no-underline hover:text-emerald-200">
+              <Phone size={14} />
+              <span>{site.phoneDisplay}</span>
+            </a>
+            <a href={`mailto:${site.email}`} className="flex items-center gap-2 text-white no-underline hover:text-emerald-200">
+              <Mail size={14} />
+              <span>{site.email}</span>
+            </a>
+          </div>
+          <div className="flex items-center gap-4 text-xs font-medium">
+            {isAuthenticated ? (
+              <>
+                <Link to={user.role === 'client' ? '/client-portal' : user.role === 'staff' ? '/staff-dashboard' : '/admin-dashboard'} className="text-white no-underline hover:text-emerald-200">
+                  Dashboard
+                </Link>
+                <button onClick={handleLogout} className="bg-transparent border-none text-white cursor-pointer hover:text-emerald-200">
+                  Logout
+                </button>
+              </>
+            ) : (
+              <Link to="/login" className="text-white no-underline hover:text-emerald-200">
+                Client Login
+              </Link>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <header className={cn("sticky top-0 z-40 border-b border-emerald-100 bg-[rgba(204,255,204,0.75)] backdrop-blur transition-all", isScrolled && "shadow-md py-1")}>
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-3 no-underline">
           <div className="grid h-11 w-11 place-items-center rounded-2xl bg-white shadow-sm ring-1 ring-emerald-100">
@@ -124,5 +169,6 @@ export function Header() {
         </div>
       ) : null}
     </header>
+    </>
   );
 }
