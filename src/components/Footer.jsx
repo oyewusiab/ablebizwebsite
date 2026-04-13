@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  Facebook, 
-  Twitter, 
+  Globe, 
+  MessageCircle, 
   Instagram, 
   Linkedin, 
   Mail, 
@@ -57,10 +57,10 @@ const Footer = () => {
               </p>
               <div className="social-links">
                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                  <Facebook size={20} />
+                  <Globe size={20} />
                 </a>
                 <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                  <Twitter size={20} />
+                  <MessageCircle size={20} />
                 </a>
                 <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                   <Instagram size={20} />
